@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deanime</title>
+
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial;
+}
+
+
+body{
+
+margin:0;
+background:#000;
+color:white;
+
+}
+
+
+
+/* Header */
+
+.header{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+padding:18px;
+
+background:rgba(20,20,20,.85);
+
+backdrop-filter:blur(25px);
+
+position:sticky;
+
+top:0;
+
+z-index:10;
+
+}
+
+
+
+.logo{
+
+width:64px;
+height:64px;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 0 20px #ff0055;
+
+}
+
+
+.logo img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+
+.appname{
+
+font-size:28px;
+font-weight:800;
+
+}
+
+
+
+.sub{
+
+color:#aaa;
+
+}
+
+
+
+
+
+/* Search */
+
+
+.search{
+
+padding:20px;
+
+}
+
+
+.search input{
+
+width:100%;
+
+padding:15px 20px;
+
+border:0;
+
+outline:none;
+
+border-radius:20px;
+
+background:#222;
+
+color:white;
+
+font-size:16px;
+
+}
+
+
+
+
+
+/* Anime Cards */
+
+
+.container{
+
+padding:20px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(160px,1fr));
+
+gap:20px;
+
+padding-bottom:90px;
+
+}
+
+
+
+
+.card{
+
+background:#171717;
+
+border-radius:25px;
+
+overflow:hidden;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+
+.card img{
+
+width:100%;
+
+height:230px;
+
+object-fit:cover;
+
+}
+
+
+
+
+
+.info{
+
+padding:15px;
+
+}
+
+
+
+.name{
+
+font-size:18px;
+
+font-weight:800;
+
+}
+
+
+
+.ep{
+
+color:#aaa;
+
+margin-top:5px;
+
+}
+
+
+
+
+
+button{
+
+
+width:100%;
+
+padding:12px;
+
+margin-top:15px;
+
+border:0;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,#ff0055,#7b2cff);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+
+
+
+
+/* Bottom */
+
+
+.bottom{
+
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+
+padding:15px;
+
+text-align:center;
+
+
+background:rgba(20,20,20,.85);
+
+backdrop-filter:blur(20px);
+
+
+color:#aaa;
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="header">
+
+
+<div class="logo">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxTbEsdFtFQo6D83kswAF26YsAtUJDDJOejipWBfCYzg&s=10">
+
+</div>
+
+
+<div>
+
+
+<div class="appname">
+Deanime
+</div>
+
+
+<div class="sub">
+Anime Streaming App
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="search">
+
+
+<input
+
+id="search"
+
+placeholder="🔎 Search..."
+
+onkeyup="searchAnime()">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="container">
+
+
+
+
+
+<div class="card">
+
+
+<img src="file:///C:/Users/TK/OneDrive/Desktop/anime/images/Screenshot%202026-07-24%20123613.png">
+
+
+<div class="info">
+
+
+<div class="name">
+
+Chainsaw Man
+
+</div>
+
+
+<div class="ep">
+
+Episode 1
+
+</div>
+
+
+
+
+<button onclick="openVideo('https://www.youtube.com/watch?v=wjzoa7JplWs')">
+
+▶ Watch Now
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://wallpapercave.com/wp/wp1812515.jpg">
+
+
+<div class="info">
+
+
+<div class="name">
+
+Anime Movie
+
+</div>
+
+
+<div class="ep">
+
+Episode 1
+
+</div>
+
+
+
+
+<button onclick="openVideo('https://www.youtube.com/')">
+
+▶ Watch Now
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="https://wallpapercave.com/wp/wp7254770.jpg">
+
+
+<div class="info">
+
+
+<div class="name">
+
+Demon Slayer
+
+</div>
+
+
+<div class="ep">
+
+Episode 1
+
+</div>
+
+
+
+
+<button onclick="openVideo('https://www.youtube.com/')">
+
+▶ Watch Now
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="bottom">
+
+🏠 Home　 🔎 Search　 ⭐ Favorite
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+// Search
+
+function searchAnime(){
+
+
+let text = document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+
+let cards =
+document.querySelectorAll(".card");
+
+
+
+cards.forEach(card=>{
+
+
+let name =
+card.querySelector(".name")
+.innerText
+.toLowerCase();
+
+
+
+if(name.includes(text)){
+
+
+card.style.display="block";
+
+
+}else{
+
+
+card.style.display="none";
+
+
+}
+
+
+
+});
+
+
+}
+
+
+
+
+// Open Youtube Link
+
+function openVideo(link){
+
+
+window.open(link,"_blank");
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
