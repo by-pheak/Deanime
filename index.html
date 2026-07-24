@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Deanime</title>
-
+<link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBna_UFWj-tr76_1dRyF2J72GSOKHzjEnzeaYFiMxISQ&s=10" type="image/x-icon">
 
 <style>
 
@@ -16,18 +16,15 @@ box-sizing:border-box;
 font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial;
 }
 
-
 body{
-
 margin:0;
 background:#000;
 color:white;
-
+overflow-x:hidden;
 }
 
 
-
-/* Header */
+/* HEADER */
 
 .header{
 
@@ -42,10 +39,26 @@ background:rgba(20,20,20,.85);
 backdrop-filter:blur(25px);
 
 position:sticky;
-
 top:0;
 
 z-index:10;
+
+animation:headerShow .8s ease;
+
+}
+
+
+@keyframes headerShow{
+
+from{
+opacity:0;
+transform:translateY(-50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
 
 }
 
@@ -60,7 +73,9 @@ border-radius:18px;
 
 overflow:hidden;
 
-box-shadow:0 0 20px #ff0055;
+box-shadow:0 0 25px #f0eaec;
+
+animation:logoAnime 2s infinite alternate;
 
 }
 
@@ -76,13 +91,28 @@ object-fit:cover;
 
 
 
-.appname{
+@keyframes logoAnime{
 
-font-size:28px;
-font-weight:800;
+from{
+transform:rotate(-5deg);
+box-shadow:0 0 15px #aaaaaa;
+}
+
+to{
+transform:rotate(5deg);
+box-shadow:0 0 40px #7b2cff;
+}
 
 }
 
+
+
+.appname{
+
+font-size:28px;
+font-weight:900;
+
+}
 
 
 .sub{
@@ -93,9 +123,7 @@ color:#aaa;
 
 
 
-
-
-/* Search */
+/* SEARCH */
 
 
 .search{
@@ -123,13 +151,24 @@ color:white;
 
 font-size:16px;
 
+transition:.4s;
+
+}
+
+
+
+.search input:focus{
+
+transform:scale(1.04);
+
+box-shadow:0 0 20px #b8b4b5;
+
 }
 
 
 
 
-
-/* Anime Cards */
+/* ANIME LIST */
 
 
 .container{
@@ -143,7 +182,7 @@ repeat(auto-fit,minmax(160px,1fr));
 
 gap:20px;
 
-padding-bottom:90px;
+padding-bottom:100px;
 
 }
 
@@ -158,7 +197,34 @@ border-radius:25px;
 
 overflow:hidden;
 
-transition:.3s;
+opacity:0;
+
+animation:cardShow .7s forwards;
+
+transition:.4s;
+
+}
+
+
+
+@keyframes cardShow{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px) scale(.9);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
 
 }
 
@@ -166,7 +232,9 @@ transition:.3s;
 
 .card:hover{
 
-transform:translateY(-5px);
+transform:translateY(-10px);
+
+box-shadow:0 0 25px #6e6d6d;
 
 }
 
@@ -181,8 +249,18 @@ height:230px;
 
 object-fit:cover;
 
+transition:.5s;
+
 }
 
+
+
+
+.card:hover img{
+
+transform:scale(1.1);
+
+}
 
 
 
@@ -204,7 +282,6 @@ font-weight:800;
 }
 
 
-
 .ep{
 
 color:#aaa;
@@ -216,9 +293,7 @@ margin-top:5px;
 
 
 
-
 button{
-
 
 width:100%;
 
@@ -238,25 +313,35 @@ font-size:16px;
 
 cursor:pointer;
 
+position:relative;
+
+overflow:hidden;
+
 }
 
 
 
 button:active{
 
-transform:scale(.95);
+transform:scale(.9);
+
+}
+
+
+
+button:hover{
+
+box-shadow:0 0 20px #ff0055;
 
 }
 
 
 
 
-
-/* Bottom */
+/* BOTTOM */
 
 
 .bottom{
-
 
 position:fixed;
 
@@ -266,33 +351,43 @@ left:0;
 
 width:100%;
 
-
 padding:15px;
 
 text-align:center;
-
 
 background:rgba(20,20,20,.85);
 
 backdrop-filter:blur(20px);
 
-
 color:#aaa;
 
+animation:bottomShow .8s;
 
 }
 
 
 
+@keyframes bottomShow{
+
+from{
+
+transform:translateY(100px);
+
+}
+
+to{
+
+transform:translateY(0);
+
+}
+
+}
+
+
 </style>
 
-
 </head>
-
-
-
 <body>
-
 
 
 <div class="header">
@@ -307,11 +402,9 @@ color:#aaa;
 
 <div>
 
-
 <div class="appname">
 Deanime
 </div>
-
 
 <div class="sub">
 Anime Streaming App
@@ -320,9 +413,7 @@ Anime Streaming App
 
 </div>
 
-
 </div>
-
 
 
 
@@ -330,163 +421,21 @@ Anime Streaming App
 
 <div class="search">
 
-
-<input
-
+<input 
 id="search"
-
-placeholder="🔎 Search..."
-
+placeholder="🔎 Search Anime..."
 onkeyup="searchAnime()">
 
-
 </div>
 
 
 
 
 
-
-
-<div class="container">
-
-
-
-
-
-<div class="card">
-
-
-<img src="file:///C:/Users/TK/OneDrive/Desktop/anime/images/Screenshot%202026-07-24%20123613.png">
-
-
-<div class="info">
-
-
-<div class="name">
-
-Chainsaw Man
-
-</div>
-
-
-<div class="ep">
-
-Episode 1
-
-</div>
-
-
-
-
-<button onclick="openVideo('https://www.youtube.com/watch?v=wjzoa7JplWs')">
-
-▶ Watch Now
-
-</button>
-
+<div class="container" id="animeList">
 
 
 </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="card">
-
-
-<img src="https://wallpapercave.com/wp/wp1812515.jpg">
-
-
-<div class="info">
-
-
-<div class="name">
-
-Anime Movie
-
-</div>
-
-
-<div class="ep">
-
-Episode 1
-
-</div>
-
-
-
-
-<button onclick="openVideo('https://www.youtube.com/')">
-
-▶ Watch Now
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<img src="https://wallpapercave.com/wp/wp7254770.jpg">
-
-
-<div class="info">
-
-
-<div class="name">
-
-Demon Slayer
-
-</div>
-
-
-<div class="ep">
-
-Episode 1
-
-</div>
-
-
-
-
-<button onclick="openVideo('https://www.youtube.com/')">
-
-▶ Watch Now
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-</div>
-
 
 
 
@@ -494,7 +443,7 @@ Episode 1
 
 <div class="bottom">
 
-🏠 Home　 🔎 Search　 ⭐ Favorite
+Welcome to my website....👓🖼
 
 </div>
 
@@ -507,46 +456,205 @@ Episode 1
 <script>
 
 
-// Search
-
-function searchAnime(){
+let anime=[
 
 
-let text = document
-.getElementById("search")
-.value
-.toLowerCase();
+{
 
+name:"ក្មេងប្រុសមហារសំណាង",
 
+ep:"(មួយរឿងពេញ)",
 
-let cards =
-document.querySelectorAll(".card");
+url:"https://www.youtube.com/watch?v=oi8xUxY7Xng"
+
+},
 
 
 
-cards.forEach(card=>{
+{
+
+name:"ផ្ដើមស្នេហ៍ចេញពីការលេងកីឡា",
+
+ep:"(មួយរឿងពេញ) Season 1",
+
+url:"https://www.youtube.com/watch?v=wjzoa7JplWs"
+
+},
 
 
-let name =
-card.querySelector(".name")
-.innerText
-.toLowerCase();
+
+{
+
+name:"មន្តស្នេហ៍បុរសគុណភាព",
+
+ep:"(មួយរឿងពេញ) Season 1",
+
+url:"https://www.youtube.com/watch?v=nBhmJabL1_k"
+
+},
 
 
 
-if(name.includes(text)){
+{
+
+name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
+
+ep:"(មួយរឿងពេញ)",
+
+url:"https://www.youtube.com/watch?v=ne-CjwM2hoY"
+
+},
 
 
-card.style.display="block";
+
+{
+
+name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
+
+ep:"(Movie Reze ARC)",
+
+url:"https://www.youtube.com/watch?v=1q7D-GcL8dg"
+
+},
 
 
-}else{
+
+{
+
+name:"ជំនួយការខ្ញុំជាព្រះនាងនៃតារា",
+
+ep:"(មួយរឿងពេញ)",
+
+url:"https://www.youtube.com/watch?v=HolcisS8Ljw"
+
+},
 
 
-card.style.display="none";
 
+{
+
+name:"Horimiya(Anime) របស់ជប៊ុន",
+
+ep:"Season 1",
+
+url:"https://www.youtube.com/watch?v=netqA36Szp0"
 
 }
+
+
+
+];
+
+
+
+
+
+
+function getYoutubeID(url){
+
+
+if(url.includes("watch?v=")){
+
+return url.split("watch?v=")[1].split("&")[0];
+
+}
+
+
+if(url.includes("youtu.be/")){
+
+return url.split("youtu.be/")[1];
+
+}
+
+
+return "";
+
+}
+
+
+
+
+
+
+
+
+function loadAnime(){
+
+
+let box=document.getElementById("animeList");
+
+
+box.innerHTML="";
+
+
+
+anime.forEach((a,index)=>{
+
+
+let id=getYoutubeID(a.url);
+
+
+
+let img=id
+
+?
+"https://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
+
+:
+
+"https://via.placeholder.com/300x400?text=Anime";
+
+
+
+
+
+
+box.innerHTML +=`
+
+
+<div class="card" 
+style="animation-delay:${index*0.15}s">
+
+
+<img src="${img}">
+
+
+
+<div class="info">
+
+
+<div class="name">
+
+${a.name}
+
+</div>
+
+
+
+<div class="ep">
+
+${a.ep}
+
+</div>
+
+
+
+<button onclick="openVideo('${a.url}')">
+
+▶ Watch Now
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+`;
 
 
 
@@ -558,7 +666,8 @@ card.style.display="none";
 
 
 
-// Open Youtube Link
+
+
 
 function openVideo(link){
 
@@ -570,8 +679,74 @@ window.open(link,"_blank");
 
 
 
-</script>
 
+
+
+
+
+function searchAnime(){
+
+
+let text=document
+
+.getElementById("search")
+
+.value
+
+.toLowerCase();
+
+
+
+
+document.querySelectorAll(".card")
+
+.forEach(card=>{
+
+
+let name=card
+
+.querySelector(".name")
+
+.innerText
+
+.toLowerCase();
+
+
+
+
+if(name.includes(text)){
+
+
+card.style.display="block";
+
+
+}
+
+else{
+
+
+card.style.display="none";
+
+
+}
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+loadAnime();
+
+
+
+</script>
 
 
 </body>
