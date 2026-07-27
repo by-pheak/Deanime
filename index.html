@@ -2,765 +2,509 @@
 <html lang="km">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Deanime</title>
-<link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBna_UFWj-tr76_1dRyF2J72GSOKHzjEnzeaYFiMxISQ&s=10" type="image/x-icon">
+
+<link rel="shortcut icon"
+href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBna_UFWj-tr76_1dRyF2J72GSOKHzjEnzeaYFiMxISQ&s=10">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
 
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
 }
 
 body{
-margin:0;
 background:#000;
-color:white;
+color:#fff;
 overflow-x:hidden;
 }
 
-
-/* HEADER */
+/* ================= HEADER ================= */
 
 .header{
-
+position:sticky;
+top:0;
+z-index:100;
 display:flex;
 align-items:center;
 gap:15px;
-
 padding:18px;
-
-background:rgba(20,20,20,.85);
-
+background:rgba(15,15,15,.85);
 backdrop-filter:blur(25px);
-
-position:sticky;
-top:0;
-
-z-index:10;
-
-animation:headerShow .8s ease;
-
+border-bottom:1px solid rgba(255,255,255,.05);
+animation:headerShow .8s;
 }
 
-
 @keyframes headerShow{
-
 from{
 opacity:0;
 transform:translateY(-50px);
 }
-
 to{
 opacity:1;
 transform:translateY(0);
 }
-
 }
-
-
 
 .logo{
-
-width:64px;
-height:64px;
-
+width:65px;
+height:65px;
 border-radius:18px;
-
 overflow:hidden;
-
-box-shadow:0 0 25px #f0eaec;
-
+box-shadow:0 0 20px #ffffff55;
 animation:logoAnime 2s infinite alternate;
-
 }
-
 
 .logo img{
-
 width:100%;
 height:100%;
-
 object-fit:cover;
-
 }
-
-
 
 @keyframes logoAnime{
-
 from{
 transform:rotate(-5deg);
-box-shadow:0 0 15px #aaaaaa;
+box-shadow:0 0 15px #ffffff88;
 }
-
 to{
 transform:rotate(5deg);
-box-shadow:0 0 40px #7b2cff;
+box-shadow:0 0 35px #7b2cff;
 }
-
 }
-
-
 
 .appname{
-
 font-size:28px;
 font-weight:900;
-
 }
-
 
 .sub{
-
 color:#aaa;
-
+font-size:14px;
+margin-top:4px;
 }
 
+/* RIGHT BUTTON */
 
+.header-right{
+margin-left:auto;
+display:flex;
+gap:10px;
+}
 
-/* SEARCH */
+.social-btn{
+width:46px;
+height:46px;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:20px;
+color:white;
+transition:.35s;
+box-shadow:0 0 15px rgba(255,255,255,.1);
+}
 
+.fb{
+background:linear-gradient(135deg,#1877F2,#0d5eff);
+}
+
+.tiktok{
+background:linear-gradient(135deg,#000,#ff0050,#00f2ea);
+}
+
+.social-btn:hover{
+transform:translateY(-4px) scale(1.08);
+box-shadow:0 0 30px #7b2cff;
+}
+
+/* ================= SEARCH ================= */
 
 .search{
-
 padding:20px;
-
 }
-
 
 .search input{
-
 width:100%;
-
 padding:15px 20px;
-
-border:0;
-
+border:none;
 outline:none;
-
 border-radius:20px;
-
-background:#222;
-
-color:white;
-
+background:#202020;
+color:#fff;
 font-size:16px;
-
 transition:.4s;
-
 }
-
-
 
 .search input:focus{
-
-transform:scale(1.04);
-
-box-shadow:0 0 20px #b8b4b5;
-
+transform:scale(1.03);
+box-shadow:0 0 20px #7b2cff;
 }
 
-
-
-
-/* ANIME LIST */
-
+/* ================= LIST ================= */
 
 .container{
-
 padding:20px;
-
 display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(160px,1fr));
-
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
 gap:20px;
-
-padding-bottom:100px;
-
+padding-bottom:120px;
 }
-
-
-
 
 .card{
-
 background:#171717;
-
-border-radius:25px;
-
+border-radius:22px;
 overflow:hidden;
-
-opacity:0;
-
-animation:cardShow .7s forwards;
-
 transition:.4s;
-
+opacity:0;
+animation:cardShow .6s forwards;
 }
-
-
 
 @keyframes cardShow{
-
 from{
-
 opacity:0;
-
-transform:translateY(50px) scale(.9);
-
+transform:translateY(40px);
 }
-
-
 to{
-
 opacity:1;
-
-transform:translateY(0) scale(1);
-
+transform:translateY(0);
 }
-
 }
-
-
 
 .card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 25px #6e6d6d;
-
+transform:translateY(-8px);
+box-shadow:0 0 25px #7b2cff;
 }
-
-
-
 
 .card img{
-
 width:100%;
-
-height:230px;
-
+height:240px;
 object-fit:cover;
-
 transition:.5s;
-
 }
-
-
-
 
 .card:hover img{
-
-transform:scale(1.1);
-
+transform:scale(1.08);
 }
-
-
-
 
 .info{
-
 padding:15px;
-
 }
-
-
 
 .name{
-
 font-size:18px;
-
 font-weight:800;
-
+line-height:1.4;
 }
-
 
 .ep{
-
-color:#aaa;
-
 margin-top:5px;
-
+color:#aaa;
+font-size:14px;
 }
 
+/* BUTTON */
 
-
-
-button{
-
+.watch-btn{
 width:100%;
-
-padding:12px;
-
 margin-top:15px;
-
-border:0;
-
+padding:12px;
+border:none;
 border-radius:18px;
-
-background:linear-gradient(135deg,#ff0055,#7b2cff);
-
-color:white;
-
-font-size:16px;
-
 cursor:pointer;
-
-position:relative;
-
-overflow:hidden;
-
+font-size:16px;
+font-weight:bold;
+color:white;
+background:linear-gradient(135deg,#ff0055,#7b2cff);
+transition:.3s;
 }
 
-
-
-button:active{
-
-transform:scale(.9);
-
+.watch-btn:hover{
+box-shadow:0 0 25px #ff0055;
+transform:translateY(-2px);
 }
 
-
-
-button:hover{
-
-box-shadow:0 0 20px #ff0055;
-
+.watch-btn:active{
+transform:scale(.95);
 }
 
-
-
-
-/* BOTTOM */
-
+/* FOOTER */
 
 .bottom{
-
 position:fixed;
-
-bottom:0;
-
 left:0;
-
+bottom:0;
 width:100%;
-
 padding:15px;
-
 text-align:center;
-
 background:rgba(20,20,20,.85);
-
 backdrop-filter:blur(20px);
-
 color:#aaa;
-
-animation:bottomShow .8s;
-
 }
 
+/* MOBILE */
 
+@media(max-width:600px){
 
-@keyframes bottomShow{
-
-from{
-
-transform:translateY(100px);
-
+.logo{
+width:55px;
+height:55px;
 }
 
-to{
+.appname{
+font-size:22px;
+}
 
-transform:translateY(0);
-
+.social-btn{
+width:42px;
+height:42px;
 }
 
 }
-
 
 </style>
 
 </head>
-<body>
 
+<body>
 
 <div class="header">
 
-
 <div class="logo">
-
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxTbEsdFtFQo6D83kswAF26YsAtUJDDJOejipWBfCYzg&s=10">
-
 </div>
-
 
 <div>
-
-<div class="appname">
-Deanime
+<div class="appname">Deanime</div>
+<div class="sub">Anime Streaming App</div>
 </div>
 
-<div class="sub">
-Anime Streaming App
+<div class="header-right">
+
+<a href="https://www.facebook.com/C.I.D000007"
+target="_blank"
+class="social-btn fb">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.tiktok.com/@chim.kompheak?is_from_webapp=1&sender_device=pc"
+target="_blank"
+class="social-btn tiktok">
+<i class="fab fa-tiktok"></i>
+</a>
+
 </div>
 
-
 </div>
-
-</div>
-
-
-
-
 
 <div class="search">
 
-<input 
+<input
 id="search"
 placeholder="🔎 Search Anime..."
 onkeyup="searchAnime()">
 
 </div>
 
-
-
-
-
 <div class="container" id="animeList">
 
-
 </div>
-
-
-
-
 
 <div class="bottom">
-
 Welcome to my website....👓🖼
-
 </div>
 
-
-
-
-
-
-
 <script>
-
-
-let anime=[
-
+    let anime=[
 
 {
-
 name:"ក្មេងប្រុសមហារសំណាង",
-
 ep:"(មួយរឿងពេញ)",
-
 url:"https://www.youtube.com/watch?v=oi8xUxY7Xng"
-
 },
 
-
-
 {
-
 name:"ផ្ដើមស្នេហ៍ចេញពីការលេងកីឡា",
-
 ep:"(មួយរឿងពេញ) Season 1",
-
 url:"https://www.youtube.com/watch?v=wjzoa7JplWs"
-
 },
 
-
-
 {
-
 name:"មន្តស្នេហ៍បុរសគុណភាព",
-
 ep:"(មួយរឿងពេញ) Season 1",
-
 url:"https://www.youtube.com/watch?v=nBhmJabL1_k"
-
 },
 
-
-
 {
-
 name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
-
 ep:"(មួយរឿងពេញ)",
-
 url:"https://www.youtube.com/watch?v=ne-CjwM2hoY"
-
 },
 
-
-
 {
-
 name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
-
-ep:"(Movie Reze ARC)",
-
+ep:"Movie Reze ARC",
 url:"https://www.youtube.com/watch?v=1q7D-GcL8dg"
-
 },
 
-
-
 {
-
 name:"ជំនួយការខ្ញុំជាព្រះនាងនៃតារា",
-
 ep:"(មួយរឿងពេញ)",
-
 url:"https://www.youtube.com/watch?v=HolcisS8Ljw"
-
 },
 
-
-
 {
-
-name:"Horimiya(Anime) របស់ជប៊ុន",
-
+name:"Horimiya",
 ep:"Season 1",
-
 url:"https://www.youtube.com/watch?v=netqA36Szp0"
-
 },
 
-
-
 {
-
 name:"កំពូលវីរៈបុរសបែកថ្នាំស្វែងរកសេចក្ដីស្លាប់",
-
 ep:"មួយរឿងពេញ",
-
 url:"https://www.youtube.com/watch?v=kAwHSPaHvJE"
-
 }
-
-
-
 
 ];
 
-
-
-
-
-
 function getYoutubeID(url){
 
-
 if(url.includes("watch?v=")){
-
 return url.split("watch?v=")[1].split("&")[0];
-
 }
-
 
 if(url.includes("youtu.be/")){
-
 return url.split("youtu.be/")[1];
-
 }
-
 
 return "";
 
 }
 
-
-
-
-
-
-
-
 function loadAnime(){
 
-
-let box=document.getElementById("animeList");
-
+const box=document.getElementById("animeList");
 
 box.innerHTML="";
 
-
-
 anime.forEach((a,index)=>{
 
+const id=getYoutubeID(a.url);
 
-let id=getYoutubeID(a.url);
+const img=id
+? "https://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
+: "https://via.placeholder.com/300x400?text=Anime";
 
+box.innerHTML+=`
 
+<div class="card" style="animation-delay:${index*0.12}s">
 
-let img=id
-
-?
-"https://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
-
-:
-
-"https://via.placeholder.com/300x400?text=Anime";
-
-
-
-
-
-
-box.innerHTML +=`
-
-
-<div class="card" 
-style="animation-delay:${index*0.15}s">
-
-
-<img src="${img}">
-
-
+<img src="${img}" loading="lazy">
 
 <div class="info">
 
+<div class="name">${a.name}</div>
 
-<div class="name">
+<div class="ep">${a.ep}</div>
 
-${a.name}
-
-</div>
-
-
-
-<div class="ep">
-
-${a.ep}
-
-</div>
-
-
-
-<button onclick="openVideo('${a.url}')">
+<button class="watch-btn"
+onclick="openVideo('${a.url}')">
 
 ▶ Watch Now
 
 </button>
 
-
-
 </div>
 
-
 </div>
-
-
 
 `;
 
-
-
 });
 
-
 }
-
-
-
-
-
-
 
 function openVideo(link){
 
-
 window.open(link,"_blank");
 
-
 }
-
-
-
-
-
-
-
 
 function searchAnime(){
 
-
-let text=document
-
+const text=document
 .getElementById("search")
-
 .value
-
 .toLowerCase();
 
-
-
-
-document.querySelectorAll(".card")
-
+document
+.querySelectorAll(".card")
 .forEach(card=>{
 
-
-let name=card
-
+const name=card
 .querySelector(".name")
-
 .innerText
-
 .toLowerCase();
 
-
-
-
-if(name.includes(text)){
-
-
-card.style.display="block";
-
-
-}
-
-else{
-
-
-card.style.display="none";
-
-
-}
-
+card.style.display=
+name.includes(text)
+? "block"
+: "none";
 
 });
 
-
 }
-
-
-
-
-
-
 
 loadAnime();
 
+/* ========= Extra Animation ========= */
 
+window.addEventListener("load",()=>{
+
+document.body.animate(
+
+[
+{opacity:0},
+{opacity:1}
+],
+{
+duration:700,
+fill:"forwards"
+}
+
+);
+
+});
+
+/* ========= Enter Search ========= */
+
+document
+.getElementById("search")
+.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+searchAnime();
+
+}
+
+});
+
+/* ========= Welcome ========= */
+
+console.log("Deanime Loaded Successfully!");
 
 </script>
-
 
 </body>
 
