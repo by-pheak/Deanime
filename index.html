@@ -2,6 +2,7 @@
 <html lang="km">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,501 +11,1390 @@
 <link rel="shortcut icon"
 href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBna_UFWj-tr76_1dRyF2J72GSOKHzjEnzeaYFiMxISQ&s=10">
 
-<!-- Font Awesome -->
+
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+
 <style>
 
+
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
+
+font-family:-apple-system,BlinkMacSystemFont,
+"SF Pro Display",Arial,sans-serif;
+
 }
+
+
 
 body{
+
 background:#000;
-color:#fff;
+
+color:white;
+
 overflow-x:hidden;
+
 }
 
-/* ================= HEADER ================= */
+
+
+/* HEADER */
+
 
 .header{
+
 position:sticky;
+
 top:0;
+
 z-index:100;
+
 display:flex;
+
 align-items:center;
+
 gap:15px;
+
 padding:18px;
+
 background:rgba(15,15,15,.85);
+
 backdrop-filter:blur(25px);
-border-bottom:1px solid rgba(255,255,255,.05);
-animation:headerShow .8s;
+
 }
 
-@keyframes headerShow{
-from{
-opacity:0;
-transform:translateY(-50px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
+
 
 .logo{
+
 width:65px;
+
 height:65px;
+
 border-radius:18px;
+
 overflow:hidden;
-box-shadow:0 0 20px #ffffff55;
-animation:logoAnime 2s infinite alternate;
+
+box-shadow:0 0 20px white;
+
 }
+
+
 
 .logo img{
+
 width:100%;
+
 height:100%;
+
 object-fit:cover;
+
 }
 
-@keyframes logoAnime{
-from{
-transform:rotate(-5deg);
-box-shadow:0 0 15px #ffffff88;
-}
-to{
-transform:rotate(5deg);
-box-shadow:0 0 35px #7b2cff;
-}
-}
+
 
 .appname{
+
 font-size:28px;
+
 font-weight:900;
+
 }
+
+
 
 .sub{
-color:#aaa;
+
 font-size:14px;
-margin-top:4px;
+
+color:#aaa;
+
 }
 
-/* RIGHT BUTTON */
+
 
 .header-right{
+
 margin-left:auto;
+
 display:flex;
+
 gap:10px;
+
 }
+
+
 
 .social-btn{
-width:46px;
-height:46px;
-border-radius:15px;
+
+width:45px;
+
+height:45px;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
-text-decoration:none;
-font-size:20px;
+
+border-radius:15px;
+
 color:white;
-transition:.35s;
-box-shadow:0 0 15px rgba(255,255,255,.1);
+
+text-decoration:none;
+
+font-size:20px;
+
+transition:.3s;
+
 }
 
-.fb{
-background:linear-gradient(135deg,#1877F2,#0d5eff);
-}
 
-.tiktok{
-background:linear-gradient(135deg,#000,#ff0050,#00f2ea);
-}
 
 .social-btn:hover{
-transform:translateY(-4px) scale(1.08);
-box-shadow:0 0 30px #7b2cff;
+
+transform:scale(1.1);
+
 }
 
-/* ================= SEARCH ================= */
+
+
+.fb{
+
+background:#1877f2;
+
+}
+
+
+
+.tiktok{
+
+background:linear-gradient(135deg,#000,#ff0050,#00f2ea);
+
+}
+
+
+
+.youtube{
+
+background:#ff0000;
+
+}
+
+
+
+
+/* SEARCH */
+
 
 .search{
+
 padding:20px;
+
 }
+
+
 
 .search input{
+
 width:100%;
+
 padding:15px 20px;
+
 border:none;
+
 outline:none;
+
 border-radius:20px;
+
 background:#202020;
-color:#fff;
+
+color:white;
+
 font-size:16px;
-transition:.4s;
+
 }
 
-.search input:focus{
-transform:scale(1.03);
-box-shadow:0 0 20px #7b2cff;
+
+
+
+/* ADD PANEL */
+
+
+.add-box{
+
+display:none;
+
+padding:20px;
+
 }
 
-/* ================= LIST ================= */
+
+
+.add-box input{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:10px;
+
+border:none;
+
+outline:none;
+
+border-radius:15px;
+
+background:#222;
+
+color:white;
+
+}
+
+
+
+.add-box button{
+
+width:100%;
+
+padding:13px;
+
+border:none;
+
+border-radius:15px;
+
+background:linear-gradient(135deg,#ff0055,#7b2cff);
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+/* GRID */
+
 
 .container{
+
 padding:20px;
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+grid-template-columns:
+repeat(auto-fit,minmax(170px,1fr));
+
 gap:20px;
+
 padding-bottom:120px;
+
 }
+
+
+
+
+
+/* CARD */
+
 
 .card{
+
 background:#171717;
+
 border-radius:22px;
+
 overflow:hidden;
-transition:.4s;
-opacity:0;
-animation:cardShow .6s forwards;
+
+display:flex;
+
+flex-direction:column;
+
+animation:show .5s;
+
 }
 
-@keyframes cardShow{
+
+
+@keyframes show{
+
 from{
+
 opacity:0;
-transform:translateY(40px);
+
+transform:translateY(30px);
+
 }
+
+
 to{
+
 opacity:1;
+
 transform:translateY(0);
+
 }
+
 }
+
+
 
 .card:hover{
+
 transform:translateY(-8px);
+
 box-shadow:0 0 25px #7b2cff;
+
 }
+
+
+
+
+
+
+/* IMAGE */
+
 
 .card img{
+
 width:100%;
+
 height:240px;
+
 object-fit:cover;
-transition:.5s;
+
+display:block;
+
+transition:.3s;
+
 }
+
+
 
 .card:hover img{
-transform:scale(1.08);
+
+transform:scale(1.05);
+
 }
+
+
+
+
+
+
+/* INFO */
+
 
 .info{
+
 padding:15px;
+
+display:flex;
+
+flex-direction:column;
+
+height:170px;
+
 }
+
+
 
 .name{
+
 font-size:18px;
+
 font-weight:800;
-line-height:1.4;
+
+height:50px;
+
+overflow:hidden;
+
+display:-webkit-box;
+
+-webkit-line-clamp:2;
+
+-webkit-box-orient:vertical;
+
 }
 
+
+
 .ep{
-margin-top:5px;
+
 color:#aaa;
-font-size:14px;
+
+margin-top:5px;
+
+height:25px;
+
 }
+
+
+
+
+
 
 /* BUTTON */
 
+
 .watch-btn{
+
 width:100%;
-margin-top:15px;
-padding:12px;
+
+height:45px;
+
+margin-top:auto;
+
 border:none;
+
 border-radius:18px;
-cursor:pointer;
-font-size:16px;
-font-weight:bold;
-color:white;
+
 background:linear-gradient(135deg,#ff0055,#7b2cff);
-transition:.3s;
-}
 
-.watch-btn:hover{
-box-shadow:0 0 25px #ff0055;
-transform:translateY(-2px);
-}
+color:white;
 
-.watch-btn:active{
-transform:scale(.95);
-}
+font-size:16px;
 
-/* FOOTER */
+font-weight:bold;
 
-.bottom{
-position:fixed;
-left:0;
-bottom:0;
-width:100%;
-padding:15px;
-text-align:center;
-background:rgba(20,20,20,.85);
-backdrop-filter:blur(20px);
-color:#aaa;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-.logo{
-width:55px;
-height:55px;
-}
-
-.appname{
-font-size:22px;
-}
-
-.social-btn{
-width:42px;
-height:42px;
-}
+cursor:pointer;
 
 }
+
+
+
+.delete-btn{
+
+margin-top:10px;
+
+background:#ff0000;
+
+}
+
+
 
 </style>
-
 </head>
+
 
 <body>
 
+
+
 <div class="header">
 
+
 <div class="logo">
+
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxTbEsdFtFQo6D83kswAF26YsAtUJDDJOejipWBfCYzg&s=10">
+
 </div>
+
+
 
 <div>
-<div class="appname">Deanime</div>
-<div class="sub">Anime Streaming App</div>
+
+<div class="appname">
+
+Deanime
+
 </div>
 
+
+<div class="sub">
+
+Anime Streaming App
+
+</div>
+
+
+</div>
+
+
+
+
+
 <div class="header-right">
+
+
 
 <a href="https://www.facebook.com/C.I.D000007"
 target="_blank"
 class="social-btn fb">
+
 <i class="fab fa-facebook-f"></i>
+
 </a>
 
-<a href="https://www.tiktok.com/@chim.kompheak?is_from_webapp=1&sender_device=pc"
+
+
+
+<a href="https://www.tiktok.com/@chim.kompheak"
 target="_blank"
 class="social-btn tiktok">
+
 <i class="fab fa-tiktok"></i>
+
 </a>
 
-</div>
+
+
+
+
+<a href="javascript:openAdd()"
+
+class="social-btn youtube">
+
+<i class="fab fa-youtube"></i>
+
+</a>
+
+
+
 
 </div>
+
+
+
+</div>
+
+
+
+
+
+
+
 
 <div class="search">
 
+
 <input
+
 id="search"
+
 placeholder="🔎 Search Anime..."
+
 onkeyup="searchAnime()">
 
-</div>
-
-<div class="container" id="animeList">
 
 </div>
 
-<div class="bottom">
-Welcome to my website....👓🖼
-</div>
 
-<script>
-    let anime=[
 
-{
-name:"ក្មេងប្រុសមហារសំណាង",
-ep:"(មួយរឿងពេញ)",
-url:"https://www.youtube.com/watch?v=oi8xUxY7Xng"
-},
 
-{
-name:"ផ្ដើមស្នេហ៍ចេញពីការលេងកីឡា",
-ep:"(មួយរឿងពេញ) Season 1",
-url:"https://www.youtube.com/watch?v=wjzoa7JplWs"
-},
 
-{
-name:"មន្តស្នេហ៍បុរសគុណភាព",
-ep:"(មួយរឿងពេញ) Season 1",
-url:"https://www.youtube.com/watch?v=nBhmJabL1_k"
-},
 
-{
-name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
-ep:"(មួយរឿងពេញ)",
-url:"https://www.youtube.com/watch?v=ne-CjwM2hoY"
-},
 
-{
-name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
-ep:"Movie Reze ARC",
-url:"https://www.youtube.com/watch?v=1q7D-GcL8dg"
-},
+<div class="add-box" id="addBox">
 
-{
-name:"ជំនួយការខ្ញុំជាព្រះនាងនៃតារា",
-ep:"(មួយរឿងពេញ)",
-url:"https://www.youtube.com/watch?v=HolcisS8Ljw"
-},
 
-{
-name:"Horimiya",
-ep:"Season 1",
-url:"https://www.youtube.com/watch?v=netqA36Szp0"
-},
+<input
 
-{
-name:"កំពូលវីរៈបុរសបែកថ្នាំស្វែងរកសេចក្ដីស្លាប់",
-ep:"មួយរឿងពេញ",
-url:"https://www.youtube.com/watch?v=kAwHSPaHvJE"
-}
+id="videoName"
 
-];
+placeholder="Anime Name">
 
-function getYoutubeID(url){
 
-if(url.includes("watch?v=")){
-return url.split("watch?v=")[1].split("&")[0];
-}
+<input
 
-if(url.includes("youtu.be/")){
-return url.split("youtu.be/")[1];
-}
+id="videoLink"
 
-return "";
+placeholder="YouTube Link">
 
-}
 
-function loadAnime(){
+<button onclick="addYoutube()">
 
-const box=document.getElementById("animeList");
-
-box.innerHTML="";
-
-anime.forEach((a,index)=>{
-
-const id=getYoutubeID(a.url);
-
-const img=id
-? "https://img.youtube.com/vi/"+id+"/maxresdefault.jpg"
-: "https://via.placeholder.com/300x400?text=Anime";
-
-box.innerHTML+=`
-
-<div class="card" style="animation-delay:${index*0.12}s">
-
-<img src="${img}" loading="lazy">
-
-<div class="info">
-
-<div class="name">${a.name}</div>
-
-<div class="ep">${a.ep}</div>
-
-<button class="watch-btn"
-onclick="openVideo('${a.url}')">
-
-▶ Watch Now
+➕ Add YouTube Video
 
 </button>
 
-</div>
 
 </div>
 
-`;
+
+
+
+
+
+
+
+<div class="container" id="animeList">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="bottom">
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+let anime=[
+
+
+{
+
+name:"ក្មេងប្រុសមហារសំណាង",
+
+ep:"(មួយរឿងពេញ)",
+
+url:"https://www.youtube.com/watch?v=oi8xUxY7Xng"
+
+},
+
+
+
+{
+
+name:"ផ្ដើមស្នេហ៍ចេញពីការលេងកីឡា",
+
+ep:"(មួយរឿងពេញ) Season 1",
+
+url:"https://www.youtube.com/watch?v=wjzoa7JplWs"
+
+},
+
+
+
+
+
+{
+
+name:"មន្តស្នេហ៍បុរសគុណភាព",
+
+ep:"(មួយរឿងពេញ) Season 1",
+
+url:"https://www.youtube.com/watch?v=nBhmJabL1_k"
+
+},
+
+
+
+
+
+{
+
+name:"វិរបុរសក្បាលរណា កម្ចាត់បិសាច",
+
+ep:"(មួយរឿងពេញ)",
+
+url:"https://www.youtube.com/watch?v=ne-CjwM2hoY"
+
+},
+
+
+
+
+
+
+{
+
+name:"វិរបុរសក្បាលរណា Movie Reze ARC",
+
+ep:"Movie",
+
+url:"https://www.youtube.com/watch?v=1q7D-GcL8dg"
+
+},
+
+
+
+
+
+
+{
+
+name:"ជំនួយការខ្ញុំជាព្រះនាងនៃតារា",
+
+ep:"(មួយរឿងពេញ)",
+
+url:"https://www.youtube.com/watch?v=HolcisS8Ljw"
+
+},
+
+
+
+
+
+{
+
+name:"Horimiya",
+
+ep:"Season 1",
+
+url:"https://www.youtube.com/watch?v=netqA36Szp0"
+
+},
+
+
+
+
+
+{
+
+name:"កំពូលវីរៈបុរសបែកថ្នាំស្វែងរកសេចក្ដីស្លាប់",
+
+ep:"មួយរឿងពេញ",
+
+url:"https://www.youtube.com/watch?v=kAwHSPaHvJE"
+
+},
+
+
+
+
+
+{
+
+name:"អ្នកបម្រើខ្ញុំជាឃាតករ",
+
+ep:"មួយរឿងពេញ",
+
+url:"https://youtu.be/3dnSM64WFkg?si=pTm9hjcmar11aOgn"
+
+},
+
+
+
+
+
+{
+
+name:"Marriage Toxin",
+
+ep:"មួយរឿងពេញ",
+
+url:"https://youtu.be/_J0YrkSbt5I?si=bgc41yV77WEN3cei"
+
+}
+
+
+
+];
+
+
+
+
+
+// USER ADD VIDEO SAVE
+
+
+let userAnime =
+
+JSON.parse(localStorage.getItem("userAnime"))
+
+|| [];
+
+
+
+
+// OPEN ADD BOX
+
+function openAdd(){
+
+
+let box=document.getElementById("addBox");
+
+
+
+if(box.style.display=="block"){
+
+
+box.style.display="none";
+
+
+}
+
+else{
+
+
+box.style.display="block";
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+// ADD YOUTUBE VIDEO
+
+
+function addYoutube(){
+
+
+
+let name=document
+
+.getElementById("videoName")
+
+.value;
+
+
+
+let link=document
+
+.getElementById("videoLink")
+
+.value;
+
+
+
+
+
+if(name=="" || link==""){
+
+
+alert("Please fill all");
+
+
+return;
+
+
+}
+
+
+
+
+
+userAnime.push({
+
+
+name:name,
+
+
+ep:"User Added",
+
+
+url:link,
+
+
+owner:true
+
+
 
 });
 
-}
 
-function openVideo(link){
 
-window.open(link,"_blank");
 
-}
 
-function searchAnime(){
 
-const text=document
-.getElementById("search")
-.value
-.toLowerCase();
+localStorage.setItem(
 
-document
-.querySelectorAll(".card")
-.forEach(card=>{
+"userAnime",
 
-const name=card
-.querySelector(".name")
-.innerText
-.toLowerCase();
+JSON.stringify(userAnime)
 
-card.style.display=
-name.includes(text)
-? "block"
-: "none";
+);
 
-});
 
-}
+
+
+
+
+document.getElementById("videoName").value="";
+
+
+document.getElementById("videoLink").value="";
+
+
 
 loadAnime();
 
-/* ========= Extra Animation ========= */
+
+
+alert("Video Added Successfully ✅");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// GET YOUTUBE ID
+
+
+function getYoutubeID(url){
+
+
+let id="";
+
+
+
+if(url.includes("watch?v=")){
+
+
+id=url.split("watch?v=")[1];
+
+
+}
+
+
+else if(url.includes("youtu.be/")){
+
+
+id=url.split("youtu.be/")[1];
+
+
+}
+
+
+
+
+
+if(id.includes("&")){
+
+
+id=id.split("&")[0];
+
+
+}
+
+
+
+
+
+if(id.includes("?")){
+
+
+id=id.split("?")[0];
+
+
+}
+
+
+
+
+return id;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// LOAD ANIME CARD
+
+
+
+function loadAnime(){
+
+
+
+let box=document
+
+.getElementById("animeList");
+
+
+
+box.innerHTML="";
+
+
+
+
+
+let allAnime=[...anime,...userAnime];
+
+
+
+
+
+
+
+allAnime.forEach((a)=>{
+
+
+
+let id=getYoutubeID(a.url);
+
+
+
+
+
+let img=id
+
+?
+
+"https://i.ytimg.com/vi/"+id+"/maxresdefault.jpg"
+
+:
+
+"https://via.placeholder.com/300x400";
+
+
+
+
+
+
+
+
+box.innerHTML+=`
+
+
+
+<div class="card">
+
+
+
+<img src="${img}" loading="lazy">
+
+
+
+
+
+<div class="info">
+
+
+
+
+
+<div class="name">
+
+${a.name}
+
+</div>
+
+
+
+
+
+<div class="ep">
+
+${a.ep}
+
+</div>
+
+
+
+
+
+
+
+<button class="watch-btn"
+
+onclick="openVideo('${a.url}')">
+
+
+▶ Watch Now
+
+
+</button>
+
+
+
+
+
+
+
+${a.owner ? `
+
+
+<button class="watch-btn delete-btn"
+
+onclick="deleteVideo('${a.url}')">
+
+
+❌ Delete
+
+
+</button>
+
+
+`:""}
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+`;
+
+
+
+
+
+});
+
+
+
+
+
+}
+
+
+
+
+
+
+// OPEN YOUTUBE PLAYER
+
+
+function openVideo(link){
+
+
+window.open(link,"_blank");
+
+
+}
+
+
+// DELETE USER ADD VIDEO
+
+function deleteVideo(url){
+
+
+userAnime = userAnime.filter(
+
+x => x.url !== url
+
+);
+
+
+
+localStorage.setItem(
+
+"userAnime",
+
+JSON.stringify(userAnime)
+
+);
+
+
+
+loadAnime();
+
+
+
+alert("Deleted Successfully ❌");
+
+
+}
+
+
+
+
+
+
+
+
+// SEARCH ANIME
+
+
+function searchAnime(){
+
+
+let text=document
+
+.getElementById("search")
+
+.value
+
+.toLowerCase();
+
+
+
+
+
+document
+
+.querySelectorAll(".card")
+
+.forEach(card=>{
+
+
+
+let name=card
+
+.querySelector(".name")
+
+.innerText
+
+.toLowerCase();
+
+
+
+
+
+if(name.includes(text)){
+
+
+card.style.display="flex";
+
+
+}
+
+else{
+
+
+card.style.display="none";
+
+
+}
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+// LOAD WEBSITE
+
+
+loadAnime();
+
+
+
+
+
+
+
+
+// PAGE FADE
+
 
 window.addEventListener("load",()=>{
+
 
 document.body.animate(
 
 [
-{opacity:0},
-{opacity:1}
-],
+
 {
-duration:700,
-fill:"forwards"
+
+opacity:0
+
+},
+
+{
+
+opacity:1
+
 }
+
+],
+
+{
+
+duration:700,
+
+fill:"forwards"
+
+}
+
 
 );
 
+
+
 });
 
-/* ========= Enter Search ========= */
+
+
+
+
+
+
+
+// ENTER SEARCH
+
 
 document
+
 .getElementById("search")
+
 .addEventListener("keypress",function(e){
+
+
 
 if(e.key==="Enter"){
 
+
+
 searchAnime();
+
+
 
 }
 
+
+
 });
 
-/* ========= Welcome ========= */
 
-console.log("Deanime Loaded Successfully!");
+
+
+
+
+
+console.log("Deanime Add YouTube System Loaded ✅");
+
+
+
+
 
 </script>
+
 
 </body>
 
